@@ -18,6 +18,10 @@ class BabyFoodsController < ApplicationController
         end
     end
 
+    def index
+        @baby_foods = BabyFood.all
+    end
+
     private
 
     def baby_food_params
