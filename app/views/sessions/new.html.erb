@@ -1,17 +1,17 @@
-<h1>Sign Up.</h1>
+<h1>Log In.</h1>
 
 <p style="color: red;">
     <%= flash[:message] if flash[:message] %>
 </p>
 
-<%= form_for(@user) do |f| %>
+<%= form_for(:user) do |f| %>
     <%= f.label :username %>
     <%= f.text_field :username %><br><br>
 
     <%= f.label :password %>
     <%= f.password_field :password %><br><br>
 
-    <%= f.submit "Sign Up" %>
+    <%= f.submit "Log In" %>
 <% end %>
 
-<h3>Already have an account? Please <%= link_to "Log In.", login_path %></h3>
+<h3>Don't have an account? Please <%= link_to "Sign up", signup_path %> here.</h3>

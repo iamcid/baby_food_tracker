@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BabyFoodTracker</title>
+    <title>Baby Food Tracker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div>
+    <%= link_to "Log Out", logout_path, method: "delete" %>
+  </div>
+
   <body>
+    <center><u><h1>Baby Food Tracker</h1></u></center>
     <%= yield %>
   </body>
 </html>
