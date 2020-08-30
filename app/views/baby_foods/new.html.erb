@@ -1,0 +1,28 @@
+<h1>Add a new baby food!</h1>
+
+<%= form_for(@baby_food) do |f| %>
+    <div>
+        <%= f.label :flavor %>
+        <%= f.text_field :flavor %><br><br>
+    </div>
+
+    <div>
+        <%= f.label :description %>
+        <%= f.text_field :description %><br><br>
+    </div>
+
+    Select an existing Category:
+    <div>
+        <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: 'Select One' %><br><br>
+    </div>
+
+    Create a new Category:
+    <div>
+        <%= f.fields_for :category do |c| %>
+            <%= c.label :name %>
+            <%= c.text_field :name %>
+        <% end %>
+    </div><br>
+
+    <%= f.submit %>
+<% end %>
