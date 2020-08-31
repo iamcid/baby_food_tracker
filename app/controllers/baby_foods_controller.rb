@@ -9,10 +9,8 @@ class BabyFoodsController < ApplicationController
         @baby_food.user_id = session[:user_id]
 
         if @baby_food.save
-            flash[:message] = "Successful creation!"
             redirect_to baby_food_path(@baby_food)
         else
-            flash[:message] = "Unsuccessful signup! Please try again!"
             @baby_food.build_user
             render :new
         end

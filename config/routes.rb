@@ -9,11 +9,13 @@ Rails.application.routes.draw do
 
   delete '/logout', to: 'sessions#destroy'
 
+  get '/auth/:provider/callback', to: 'sessions#create'
+
   resources :reviews
   resources :baby_foods do
     resources :reviews, only:[:new, :index]
   end
-  resources :categories
-  resources :users
+
+  resources :users, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

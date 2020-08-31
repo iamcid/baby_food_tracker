@@ -3,22 +3,28 @@
 <%= render partial: 'layouts/errors', locals: {object: @review} %>
 
 <%= form_for(@review) do |f| %>
-    <div>
-        <%= f.label :stars %>
-        <%= f.number_field :stars, min:1, max:5 %><br><br>
-    </div>
+    <% if params[:baby_food_id]%>
+        <%= f.hidden_field :baby_food_id %>
+    <% else %>
+        <div>
+            <%= f.label :baby_food_id, 'Select a Baby Food' %>
+            <%= f.collection_select :baby_food_id, BabyFood.all, :id, :flavor, include_blank: true %>
+        </div><br>
+    <% end %>
+        <div>
+            <%= f.label :stars %>
+            <%= f.number_field :stars, min:1, max:5 %><br><br>
+        </div>
 
-    <div>
-        <%= f.label :title %>
-        <%= f.text_field :title %><br><br>
-    </div>
+        <div>
+            <%= f.label :title %>
+            <%= f.text_field :title %><br><br>
+        </div>
 
-    <div>
-        <%= f.label :content %>
-        <%= f.text_area :content, rows: "4", cols:"50" %><br><br>
-    </div>
+        <div>
+            <%= f.label :content %>
+            <%= f.text_area :content, rows: "4", cols:"50" %><br><br>
+        </div>
 
-    <%= f.hidden_field :baby_food_id %>
-
-    <%= f.submit %>
+        <%= f.submit %>
 <% end %>

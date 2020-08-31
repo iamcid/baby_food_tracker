@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
     def new
-        if
-            @baby_food = BabyFood.find_by_id(params[:baby_food_id])
+        if @baby_food = BabyFood.find_by_id(params[:baby_food_id])
             @review = @baby_food.reviews.build
         else
             @review = Review.new
