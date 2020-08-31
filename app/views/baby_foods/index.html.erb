@@ -3,6 +3,7 @@
 <% @baby_foods.each do |bf| %>
     <h3><%= bf.flavor %> - <%= bf.category.name %></h3>
 <div>
-    <%= bf.description %>
+    <p><%= bf.description %></p>
 </div>
+<%= link_to "Write a Review", new_baby_food_review_path(bf.id) %>
 <% end %>
