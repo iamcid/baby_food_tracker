@@ -1,7 +1,11 @@
 class ReviewsController < ApplicationController
     def new
-        @baby_food = BabyFood.find_by_id(params[:baby_food_id])
-        @review = @baby_food.reviews.build
+        if
+            @baby_food = BabyFood.find_by_id(params[:baby_food_id])
+            @review = @baby_food.reviews.build
+        else
+            @review = Review.new
+        end
     end
 
     def create
@@ -18,7 +22,11 @@ class ReviewsController < ApplicationController
     end
 
     def index
-        @reviews = Review.all
+        if @baby_food = BabyFood.find_by_id(params[:baby_food_id])
+            @reviews = @baby_food.reviews
+        else
+            @reviews = Review.all
+        end
     end
 
     private
