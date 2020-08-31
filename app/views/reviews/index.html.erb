@@ -1,0 +1,7 @@
+<h1>All Reviews</h1>
+
+<% @reviews.each do |r| %>
+    <ul>
+        <li><%= r.baby_food.flavor %>: <%= r.title %> - <%= r.stars %></li>
+    </ul>
+<% end %>

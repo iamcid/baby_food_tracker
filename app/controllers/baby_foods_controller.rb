@@ -22,6 +22,10 @@ class BabyFoodsController < ApplicationController
         @baby_foods = BabyFood.all
     end
 
+    def show
+        @baby_food = BabyFood.find_by_id(params[:id])
+    end
+
     private
 
     def baby_food_params

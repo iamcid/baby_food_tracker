@@ -6,5 +6,5 @@ class BabyFood < ApplicationRecord
 
   accepts_nested_attributes_for :category
 
-  
+  # validates :category_id, presence: true
 end
