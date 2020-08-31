@@ -9,6 +9,10 @@ class BabyFood < ApplicationRecord
   validates :flavor, presence: true
   validate :no_duplicates
 
+  def self.alpha
+    order(:flavor)
+  end
+
   # def category_attributes(attributes)
   #   self.category = Category.find_or_create_by(attribute) if !attributes['name'].empty?
   #   self.category
@@ -16,7 +20,11 @@ class BabyFood < ApplicationRecord
 
   def no_duplicates
     if BabyFood.find_by(flavor: flavor, category_id: category_id)
-    errors.add(:flavor, 'has already been added for that category')
+      errors.add(:flavor, 'has already been added for that category')
     end
+  end
+
+  def flavor_and_category
+    "#{flavor} - #{category.name}"
   end
 end
